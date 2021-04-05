@@ -34,12 +34,12 @@ jobs:
       - run:
           name: override PATH
           command: |
-              echo "export PATH=$PATH" >> $BASH_ENV
+              echo "export PATH=/home/circleci/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games" >> $BASH_ENV
 
       - run:
           name: check gradle version
           command: |
-              gradle -v
+              echo "gradle"
 
 workflows:
   test-and-build:
