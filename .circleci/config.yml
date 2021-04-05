@@ -7,8 +7,8 @@ jobs:
   unit-test:
      machine:
       image: android:202102-01
-      resource-class: large
-      shell: /bin/bash
+    resource-class: large
+    shell: /bin/bash
     steps:
       - checkout
       - android/restore-gradle-cache
