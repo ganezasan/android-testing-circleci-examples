@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   unit-test:
-     machine:
+    machine:
       image: android:202102-01
     resource_class: large
     shell: /bin/bash
