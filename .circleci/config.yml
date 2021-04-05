@@ -17,15 +17,17 @@ jobs:
       - android/save-gradle-cache
       - android/save-build-cache
       - run:
-          name: Save test results
+          name: install new Gradle
           command: |
-              mkdir -p ~/test-results/junit/
-              find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
-          when: always
-      - store_test_results:
-          path: ~/test-results
-      - store_artifacts:
-          path: ~/test-results/junit
+              wget https://services.gradle.org/distributions/gradle-6.5-all.zip --no-check-certificate
+              sudo unzip gradle-6.5-all.zip -d /usr/local/
+              NEW_PATH=$(echo $PATH | sed -e 's/gradle-6.8.3/gradle-6.5/g')
+              echo "export PATH=$NEW_PATH" >> $BASH_ENV
+      - run:
+          name: check gradle version
+          command: |
+            gradle -v
+
 
   android-test:
     parameters:
