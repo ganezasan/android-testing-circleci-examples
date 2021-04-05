@@ -20,7 +20,7 @@ jobs:
               wget https://services.gradle.org/distributions/gradle-6.5-all.zip --no-check-certificate
               sudo unzip gradle-6.5-all.zip -d /usr/local/
               NEW_PATH=$(echo $PATH | sed -e 's/gradle-6.8.3/gradle-6.5/g')
-              echo "export PATH=$NEW_PATH" >> $BASH_ENV
+              echo "export PATH=\"$NEW_PATH\"" >> $BASH_ENV
               source $BASH_ENV
               gradle -v
               echo $PATH
