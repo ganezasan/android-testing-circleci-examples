@@ -23,6 +23,7 @@ jobs:
               echo "export PATH=$NEW_PATH" >> $BASH_ENV
               source $BASH_ENV
               gradle -v
+              echo $PATH
       - run:
           name: check gradle version
           command: |
