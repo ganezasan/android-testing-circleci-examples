@@ -26,9 +26,7 @@ jobs:
       - run:
           name: check gradle version
           command: |
-              source $BASH_ENV
-              echo $PATH
-              gradle -v
+              echo "hello"
 
 
   android-test:
