@@ -7,7 +7,7 @@ jobs:
   unit-test:
     executor:
       name: android/android-machine
-      resource-class: xlarge
+      resource-class: large
     steps:
       - checkout
       - android/restore-gradle-cache
@@ -70,33 +70,5 @@ workflows:
   test-and-build:
     jobs:
       - unit-test
-      - android-test:
-          filters:
-            branches:
-              ignore: main # regular commits
-      - android-test:
-          matrix:
-            alias: android-test-all
-            parameters:
-              system-image:
-                - system-images;android-30;google_apis;x86
-                - system-images;android-29;google_apis;x86
-                - system-images;android-28;google_apis;x86
-                - system-images;android-27;google_apis;x86
-                - system-images;android-26;google_apis;x86
-                - system-images;android-25;google_apis;x86
-                - system-images;android-24;google_apis;x86
-                - system-images;android-23;google_apis;x86
-          name: android-test-<<matrix.system-image>>
-          filters:
-            branches:
-              only: main # Commits to main branch
 
-      - release-build:
-          requires:
-            - unit-test
-            - android-test-all
-          filters:
-            branches:
-              only: main # Commits to main branch
 
