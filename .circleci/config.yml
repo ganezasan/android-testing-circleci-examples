@@ -5,8 +5,8 @@ orbs:
 
 jobs:
   unit-test:
-    executor:
-      name: android/android-machine
+     machine:
+      image: android:202102-01
       resource-class: large
       shell: /bin/bash
     steps:
