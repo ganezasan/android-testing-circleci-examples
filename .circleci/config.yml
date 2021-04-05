@@ -24,7 +24,7 @@ jobs:
               source $BASH_ENV
               gradle -v
               echo $PATH
-              
+              which bash
       - run:
           name: check gradle version
           command: |
