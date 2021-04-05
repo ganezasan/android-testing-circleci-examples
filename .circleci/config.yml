@@ -35,9 +35,7 @@ jobs:
       - run:
           name: check gradle version
           command: |
-              source $BASH_ENV
-              echo "hello"
-          shell: /usr/bin/bash
+              gradle -v
       - run:
           shell: /bin/bash
           command: ls -la /bin/bash
