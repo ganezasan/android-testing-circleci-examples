@@ -23,10 +23,11 @@ jobs:
               sudo unzip gradle-6.5-all.zip -d /usr/local/
               NEW_PATH=$(echo $PATH | sed -e 's/gradle-6.8.3/gradle-6.5/g')
               echo "export PATH=$NEW_PATH" >> $BASH_ENV
+              source $BASH_ENV
       - run:
           name: check gradle version
           command: |
-            gradle -v
+              gradle -v
 
 
   android-test:
