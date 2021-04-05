@@ -7,7 +7,7 @@ jobs:
   unit-test:
      machine:
       image: android:202102-01
-    resource-class: large
+    resource_class: large
     shell: /bin/bash
     steps:
       - checkout
