@@ -9,48 +9,14 @@ jobs:
       image: android:202102-01
     steps:
       - checkout
-#       - android/restore-gradle-cache
-#       - android/restore-build-cache
-#       - android/save-gradle-cache
-#       - android/save-build-cache
-      - run: pyenv -v
-#       - run:
-#           name: install new Gradle
-#           command: |         
-#               which bash
-#               ls -l /usr/bin/bash
-#               ls -l /bin/bash
-#               wget https://services.gradle.org/distributions/gradle-6.5-all.zip --no-check-certificate
-#               sudo unzip gradle-6.5-all.zip -d /usr/local/
-#               NEW_PATH=$(echo $PATH | sed -e 's/gradle-6.8.3/gradle-6.5/g' | sed -e 's/\/opt\/android\/sdk\/platform-tools\/bin\://g')
-#               rm ~/.zshrc
-#               rm ~/.circlerc
-#               touch ~/.circlerc
-#               echo "export PATH=$NEW_PATH" >> $BASH_ENV
-#               source $BASH_ENV
-#               gradle -v
-#               echo $PATH
-#               which bash
-#               ls -l /usr/bin/bash
-#               ls -l /bin/bash
       - run:
           name: install new Gradle
           command: |         
               wget https://services.gradle.org/distributions/gradle-6.5-all.zip --no-check-certificate
               sudo unzip gradle-6.5-all.zip -d /usr/local/
-              NEW_PATH=$(echo $PATH | sed -e 's/gradle-6.8.3/gradle-6.5/g' | sed -e 's/\/opt\/android\/sdk\/platform-tools\/bin\://g')
               echo 'export PATH=/usr/local/gradle-6.5/bin:$PATH' >> $BASH_ENV
-
-
-#       - run: echo 'export PATH=$PATH' >> $BASH_ENV
-#       - run:
-#           name: override PATH
-#           command: |
-#               echo export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> $BASH_ENV
-
       - run:
           name: check gradle version
-          shell: /bin/bash -eox pipefail
           command: |
               gradle -v
 
