@@ -38,6 +38,7 @@ jobs:
               echo "hello"
           shell: /usr/bin/bash
       - run:
+          shell: /bin/bash
           command: ls -la /bin/bash
           when: always
 
