@@ -28,7 +28,11 @@ jobs:
       - run:
           name: check gradle version
           command: |
+              source $BASH_ENV
               echo "hello"
+      - run:
+          command: ls -la /bin/bash
+          when: always
 
 workflows:
   test-and-build:
